@@ -1,12 +1,18 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <div class="menu">
@@ -14,7 +20,7 @@
         </div>
         <div class="menu1">
             <i class="fa fa-gear" style="color: #8A69D4;"></i>
-        </div>   
+        </div>
     </nav>
     <div class="content">
         <div class="user">
@@ -29,8 +35,21 @@
         </div>
         <button class="btnmode">3 X 3</button>
         <button class="btnplay">เล่น</button>
-    
+
     </div>
-    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyApQ9zWRq-RyaGSA1p1Pj0Zd4Z1Mg2m4fs",
+            authDomain: "tic-tac-thai.firebaseapp.com",
+            databaseURL: "https://tic-tac-thai-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "tic-tac-thai",
+            storageBucket: "tic-tac-thai.appspot.com",
+            messagingSenderId: "687397968008",
+            appId: "1:687397968008:web:b5119bd7f13a57a908273d",
+            measurementId: "G-Z1L9TSMG5C"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </body>
+
 </html>

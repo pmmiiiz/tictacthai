@@ -4,6 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,43 +17,52 @@
             <button id="leftpic" class="btnleft"><b><</b></button>
             <div id="profile">
                 <div class="pic">
-                    <img src="img/profile/pf1.png">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/tic-tac-thai.appspot.com/o/pf1.png?alt=media&token=9d09c1da-592a-4e14-acbb-41c8dfe1989a">
                 </div>
                 <div class="pic">
-                    <img src="img/profile/pf2.png">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/tic-tac-thai.appspot.com/o/pf2.png?alt=media&token=ce3b802a-79a7-4bec-b66d-43590c5efad4">
                 </div>
                 <div class="pic">
-                    <img src="img/profile/pf3.png">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/tic-tac-thai.appspot.com/o/pf3.png?alt=media&token=a451fa1b-8330-472f-9bd5-e49e1b42405a">
                 </div>
                 <div class="pic">
-                    <img src="img/profile/pf4.png">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/tic-tac-thai.appspot.com/o/pf4.png?alt=media&token=4e8ce8dd-a1a0-4ea5-a9ea-12801c51be9c">
                 </div>
                 <div class="pic">
-                    <img src="img/profile/pf5.png">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/tic-tac-thai.appspot.com/o/pf5.png?alt=media&token=4897ad00-0b35-4034-9a0f-7a59f6cd8547">
                 </div>
                 <div class="pic">
-                    <img src="img/profile/pf6.png">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/tic-tac-thai.appspot.com/o/pf6.png?alt=media&token=27dc2c6a-dc9c-46e1-ae10-dd8a311c6af3">
                 </div>
                 <div class="pic">
-                    <img src="img/profile/pf7.png">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/tic-tac-thai.appspot.com/o/pf7.png?alt=media&token=6c072549-664c-48ca-83b7-2117857653b7">
                 </div>
                 <div class="pic">
-                    <img src="img/profile/pf8.png">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/tic-tac-thai.appspot.com/o/pf8.png?alt=media&token=bce24dc4-c9e3-4460-8577-3b5bb843f12b">
                 </div>
                 <div class="pic">
-                    <img src="img/profile/pf9.png">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/tic-tac-thai.appspot.com/o/pf9.png?alt=media&token=0ec14602-79c0-42be-9ecc-75c6b16ae1fc">
                 </div>
             </div>
             <button id="rightpic" class="btnright"><b>></b></button>
             
         </div>
         <input type="text" id="username" name="username" placeholder="ใส่ชื่อเล่นของคุณ">
-        <button class="btnsave">บันทึก</button>
+        <button id="savename" class="btnsave">บันทึก</button>
     </div>
 </body>
+
+
+
+
+
+
+
+
 <script>
     let numpic = 0;
     let endnumpic = 9;
+    let selectnumpic = 0;
     const pic = document.querySelectorAll(".pic");
     
     rightpic.addEventListener("click", function() {
@@ -58,9 +71,11 @@
 
         if (numpic < endnumpic) {
             pic[numpic].style.display = "block";
+            selectnumpic = numpic
         } else {
             numpic = 0;
             pic[numpic].style.display = "block";
+            selectnumpic = numpic
         }
     });
     
@@ -70,12 +85,28 @@
 
         if (numpic > -1) {
             pic[numpic].style.display = "block";
+            selectnumpic = numpic
         } else {
             numpic = endnumpic - 1;
             pic[numpic].style.display = "block";
+            selectnumpic = numpic
         }
     });
 
 
 </script>
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyApQ9zWRq-RyaGSA1p1Pj0Zd4Z1Mg2m4fs",
+    authDomain: "tic-tac-thai.firebaseapp.com",
+    databaseURL: "https://tic-tac-thai-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "tic-tac-thai",
+    storageBucket: "tic-tac-thai.appspot.com",
+    messagingSenderId: "687397968008",
+    appId: "1:687397968008:web:b5119bd7f13a57a908273d",
+    measurementId: "G-Z1L9TSMG5C"
+};
+firebase.initializeApp(firebaseConfig);
+</script>
+<script type="text/javascript" src="createname.js"></script>
 </html>

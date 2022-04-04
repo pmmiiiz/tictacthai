@@ -18,6 +18,7 @@ function createUser(event) {
             signupModal.hide()
             signupForm.reset();
             signupFeedback.innerHTML = ``;
+            window.location.href = "./createname.html"
         }, 1000);
     })
     .catch((error) => {
@@ -78,7 +79,7 @@ function loginUser(event) {
         setTimeout(function(){
             loginModal.hide()
             loginForm.reset();
-            window.location.href = "./createname.html"
+            window.location.href = "./menu.html"
             loginFeedback.innerHTML = ``;
         }, 1000);
        
