@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body{
+    /* box-sizing: border-box; */
+    font-family: 'Kanit', sans-serif;
+    background-color: #F0EEEB;
+    margin: 0;
+}
+
+.content{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.content p{
+    color: #E7BD4F;
+    text-shadow: 1px 1px black;
+    font-size: 20pt;
+}
+
+.changechar{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.changechar img{
+    width: 40%;
+}
+.btnleft{
+    background-color: #E7BD4F;
+    border: none;
+    color: #FB4D44;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.8vw;
+    font-family: 'Fredoka One', cursive;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 3.5vw;
+    height: 3.5vw;
+    margin: 0 40px;
+    z-index: 5;
+}
+.btnright{
+    background-color: #E7BD4F;
+    border: none;
+    color: #FB4D44;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.8vw;
+    font-family: 'Fredoka One', cursive;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 3.5vw;
+    height: 3.5vw;
+    margin: 0 40px;
+}
+.btnright:hover{
+    background-color: #8A69D4;
+    color: #E7BD4F;
+}
+.btnleft:hover{
+    background-color: #8A69D4;
+    color: #E7BD4F;
+}
+
+.btnsave{
+    background-color: #00C69F;
+    border: none;
+    color: white;
+    padding: 5px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18pt;
+    font-family: 'Kanit', sans-serif;
+    margin: 20px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.btnsave:hover{
+    background-color: #8A69D4;
+}
+
+input[type=text]{
+    width: 20%;
+    padding: 12px 20px;
+    margin: 30px;
+    display: inline-block;
+    border: 2px solid #E7BD4F;
+    border-radius: 40px;
+    box-sizing: border-box;
+    font-size: 14pt;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+  }
+
+.pic {
+    display: none;
+    text-align: center;
+}
+.pic img{
+    width: 18vw;
+}
+.pic:nth-child(1) {
+    display: block;
+}
+
+/*menu*/
+nav {
+    /* Navbar */
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+  }
+  .menu{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    /* justify-content: center; */
+    flex-grow: 1;
+  }
+
+  .menu1{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+
+  .menu img{
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-start; */
+    text-align: center;
+    padding: 2vw 2vw;
+    width: 10vw;
+  }
+
+  .menu1 i{
+    padding: 2vw 2vw;
+    font-size: 3vw;
+  }
+
+.btnplay{
+    background-color: #F88DD5;
+    border: none;
+    color: white;
+    padding: 5px 110px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20pt;
+    font-family: 'Kanit', sans-serif;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.btnmode{
+    background-color: #F88DD5;
+    border: none;
+    color: white;
+    padding: 5px 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20pt;
+    font-family: 'Kanit', sans-serif;
+    margin: 50px 2px 0 0;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.username p{
+    font-size: 1.5vw;
+    margin: 10;
+    color: black;
+    background-color: #E7BD4F;
+    text-shadow: 0px 0px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 5px 50px;
+}
+
+/*waiting*/
+
+.logo img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2vw 2vw;
+    width: 10vw;
+  }
+
+.btnback{
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.8vw;
+    font-family: 'Fredoka One', cursive;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.back{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 0 0 0 2vw;
+    flex: 1;
+}
+.match{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.playerone{
+    flex: 3;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 5vw;
+    flex-direction: column;
+}
+.playertwo{
+    flex: 3;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 5vw;
+    flex-direction: column;
+}
+.vs{
+    flex: 1;
+    font-size: 6.5vw;
+    font-family: 'Kanit', sans-serif;
+    color: #FB4D44;
+    
+}
+
+.buttonjoin{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+}
+
+.btnjoin{
+    background-color: #E7BD4F;
+    border: none;
+    color: white;
+    padding: 0px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14pt;
+    font-family: 'Kanit', sans-serif;
+    margin: 20px 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    /* flex: 1; */
+}
+
+.btncancle{
+    background-color: #9F9F9F;
+    border: none;
+    color: white;
+    padding: 0px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14pt;
+    font-family: 'Kanit', sans-serif;
+    margin: 20px 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    /* flex: 1; */
+}

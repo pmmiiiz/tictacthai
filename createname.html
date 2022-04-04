@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <p><b>เลือกตัวละคร</b></p>
+        <div class="changechar">
+            <button id="leftpic" class="btnleft"><b><</b></button>
+            <div id="profile">
+                <div class="pic">
+                    <img src="img/profile/pf1.png">
+                </div>
+                <div class="pic">
+                    <img src="img/profile/pf2.png">
+                </div>
+                <div class="pic">
+                    <img src="img/profile/pf3.png">
+                </div>
+                <div class="pic">
+                    <img src="img/profile/pf4.png">
+                </div>
+                <div class="pic">
+                    <img src="img/profile/pf5.png">
+                </div>
+                <div class="pic">
+                    <img src="img/profile/pf6.png">
+                </div>
+                <div class="pic">
+                    <img src="img/profile/pf7.png">
+                </div>
+                <div class="pic">
+                    <img src="img/profile/pf8.png">
+                </div>
+                <div class="pic">
+                    <img src="img/profile/pf9.png">
+                </div>
+            </div>
+            <button id="rightpic" class="btnright"><b>></b></button>
+            
+        </div>
+        <input type="text" id="username" name="username" placeholder="ใส่ชื่อเล่นของคุณ">
+        <button class="btnsave">บันทึก</button>
+    </div>
+</body>
+<script>
+    let numpic = 0;
+    let endnumpic = 9;
+    const pic = document.querySelectorAll(".pic");
+    
+    rightpic.addEventListener("click", function() {
+        pic[numpic].style.display = "none";
+        numpic++;
+
+        if (numpic < endnumpic) {
+            pic[numpic].style.display = "block";
+        } else {
+            numpic = 0;
+            pic[numpic].style.display = "block";
+        }
+    });
+    
+    leftpic.addEventListener("click", function() {
+        pic[numpic].style.display = "none";
+        numpic--;
+
+        if (numpic > -1) {
+            pic[numpic].style.display = "block";
+        } else {
+            numpic = endnumpic - 1;
+            pic[numpic].style.display = "block";
+        }
+    });
+
+
+</script>
+</html>
