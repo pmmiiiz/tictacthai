@@ -1,21 +1,5 @@
 const refuser = firebase.database().ref("users")
-
-refuser.on("value", data => {
-    data = data.val()
-
-    const currentuser = firebase.auth().currentUser
-    console.log(currentuser);
-    console.log(data[currentuser.uid]);
-    console.log(data)
-
-    const user = data[currentuser.uid]
-    console.log(user.username);
-
-    document.querySelector('#pic-profile img').src = user.profile_picture
-    document.querySelector('#nickname div').innerHTML = user.username
-
-})
-
+const refroom = firebase.database().ref("rooms")
 const btnjoin = document.querySelector('#join-x');
 btnjoin.addEventListener('click', ready);
 
@@ -40,7 +24,6 @@ function cancel() {
     document.querySelector('#join-x').classList.remove("disabled")
 }
 
-
 const btnstart = document.querySelector('#btn-startgame');
 btnstart.addEventListener('click', start);
   
@@ -52,16 +35,33 @@ function start() {
 const btninvite = document.querySelector('#invite');
 btninvite.addEventListener('click', btninvitepopup);
 
-
 function btninvitepopup() {
-    document.querySelector('#popupwaiting').style.display = "flex"
-    let coderandom = Math.floor(Math.random() *9999)
-    document.querySelector('#coderan').innerHTML = coderandom
+    document.querySelector('#popupwaiting').style.display = "flex"  
 }
-
+refroom.on("value", (data)=>{
+    data = data.val()
+    const currentuser = firebase.auth().currentUser
+    for(const r in data){
+        const room = data[r]
+        console.log(room); 
+        refuser.child(room.playerx).on("value", user => {
+            user = user.val()
+            document.querySelector('#pic-profile img').src = user.profile_picture
+            document.querySelector('#nickname div').innerHTML = user.username
+        })
+        document.querySelector('#coderan').innerHTML = room.code 
+        refuser.child(room.playero).on("value", user => {
+            user = user.val()
+            document.querySelector('#invite img').src = user.profile_picture
+            document.querySelector('.username-o div').innerHTML = user.username
+            document.querySelector('#join-o').style.opacity = "1"
+            document.querySelector('#cancel-o').style.opacity = "1"
+            document.querySelector('.username-o').style.opacity = "1"
+        })
+    }
+})
 const btnclose = document.querySelector('#closepopup');
 btnclose.addEventListener('click', closepopup);
-
 
 function closepopup() {
     document.querySelector('#popupwaiting').style.display = "none"
