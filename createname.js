@@ -13,8 +13,6 @@ firebase.auth().onAuthStateChanged((user) => {
       // ...
     }
   });
-
-
   const btnsavename = document.querySelector('#savename');
   btnsavename.addEventListener('click', createname);
   
@@ -30,11 +28,7 @@ firebase.auth().onAuthStateChanged((user) => {
           profile_picture : image[selectnumpic].src
         });
         setTimeout(function(){
-          
           window.location.href = "./menu.html"
-          
-      }, 1000);
-     
-      
+      }, 1000);   
   }
 
