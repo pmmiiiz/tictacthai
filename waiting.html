@@ -3,7 +3,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic Tac Thai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,28 +22,55 @@
         <div class="back">
         </div>  
     </nav>
-    <div class="match">
-        <div class="playerone">
-            <div class="pic">
-                <img src="img/profile/pf1.png">
+    <div class="content">
+        <div class="match">
+            <div class="playerone">
+                <div class="ready" id="readyjoin">กด "พร้อม" เพื่อเริ่มเกม</div>
+                <div class="pic" id="pic-profile">
+                    <img src="img/profile/pfload.png">
+                </div>
+                <div class="username-x" id="nickname">
+                    <div>loading...</div>
+                </div>
+                <div class="buttonjoin">
+                    <button  type="button" id="join-x" class="btnjoin-x">พร้อม</button>
+                    <button  type="button" id="cancel-x" class="btncancel-x">ยกเลิก</button>
+                </div>
             </div>
-            <div class="buttonjoin">
-                <button id="join" class="btnjoin"><p>join</p></button>
-                <button id="cancle" class="btncancle"><p>cancle</p></button>
+            <div class="vs">
+            <b>VS</b> 
+            </div>
+            <div class="playertwo">
+                <div class="ready">เชิญเพื่อน</div>
+                <div class="pic">
+                    <img src="img/profile/pfinvite.png">
+                </div>
+                <div class="username-o">
+                    <div>loading...</div>
+                </div>
+                <div class="buttonjoin">
+                    <button  type="button" id="join-o" class="btnjoin-o">พร้อม</button>
+                    <button  type="button" id="cancel-o" class="btncancel-o">ยกเลิก</button>
+                </div>
             </div>
         </div>
-        <div class="vs">
-           <b>VS</b> 
-        </div>
-        <div class="playertwo">
-            <div class="pic">
-                <img src="img/profile/pf2.png">
-            </div>
-            <div class="buttonjoin">
-                <button id="join" class="btnjoin"><p>join</p></button>
-                <button id="cancle" class="btncancle"><p>cancle</p></button>
-            </div>
+        <div class="starts">
+            <button class="btnstart" id="btn-startgame">เริ่มเกม</button>
         </div>
     </div>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyApQ9zWRq-RyaGSA1p1Pj0Zd4Z1Mg2m4fs",
+            authDomain: "tic-tac-thai.firebaseapp.com",
+            databaseURL: "https://tic-tac-thai-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "tic-tac-thai",
+            storageBucket: "tic-tac-thai.appspot.com",
+            messagingSenderId: "687397968008",
+            appId: "1:687397968008:web:b5119bd7f13a57a908273d",
+            measurementId: "G-Z1L9TSMG5C"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script type="text/javascript" src="waiting.js"></script>
 </body>
 </html>

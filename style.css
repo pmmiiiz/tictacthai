@@ -224,7 +224,7 @@ nav {
 .match{
     display: flex;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -258,41 +258,170 @@ nav {
     align-items: center;
     justify-content: center;
     height: 10%;
+    padding-top: 8%;
 }
 
-.btnjoin{
+.btnjoin-x{
     background-color: #E7BD4F;
     border: none;
     color: white;
-    padding: 0px 32px;
+    padding: 6px 48px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 14pt;
     font-family: 'Kanit', sans-serif;
-    margin: 20px 20px;
+    margin: 20px 10px;
     cursor: pointer;
     border-radius: 30px;
     /* flex: 1; */
 }
 
-.btncancle{
-    background-color: #9F9F9F;
+.btncancel-x{
+    background-color: #747474;
     border: none;
     color: white;
-    padding: 0px 32px;
+    padding: 6px 42px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 14pt;
     font-family: 'Kanit', sans-serif;
-    margin: 20px 20px;
+    margin: 20px 10px;
     cursor: pointer;
     border-radius: 30px;
     /* flex: 1; */
+}
+
+.btnjoin-o{
+    background-color: #E7BD4F;
+    border: none;
+    color: white;
+    padding: 6px 48px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14pt;
+    font-family: 'Kanit', sans-serif;
+    margin: 20px 10px;
+    cursor: default;
+    border-radius: 30px;
+    opacity: 0;
+}
+
+.btncancel-o{
+    background-color: #747474;
+    border: none;
+    color: white;
+    padding: 6px 42px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14pt;
+    font-family: 'Kanit', sans-serif;
+    margin: 20px 10px;
+    cursor: default;
+    border-radius: 30px;
+    opacity: 0;
 }
 
 .btnback a{
     text-decoration: none;
     color: black;
+}
+
+.starts{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnstart{
+    background-color: #00C69F;
+    border: none;
+    color: white;
+    padding: 5px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25pt;
+    font-family: 'Kanit', sans-serif;
+    margin: 50px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.ready{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 20pt;
+    padding: 50px 0 20px 0;
+    font-weight: bold;
+}
+.playerone .pic{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.playertwo .pic{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.playerone .pic img{
+    width: 15vw;
+}
+.playertwo .pic img{
+    width: 15vw;
+}
+.username-x div{
+    font-size: 1.7vw;
+    margin: -20px;
+    color: black;
+    background-color: #F88DD5;
+    text-shadow: 0px 0px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 3px 1px;
+    width: 40%;
+}
+.username-x{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.username-o div{
+    font-size: 1.7vw;
+    margin: -20px;
+    color: black;
+    background-color: #F88DD5;
+    text-shadow: 0px 0px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 3px 1px;
+    width: 40%;
+}
+.username-o{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.btnjoin-x.disabled{
+    background-color: #e9d39c;
+    cursor: default;
+}
+
+.btncancel-x.disabledd{
+    background-color: #b3b3b3;
+    cursor: default;
 }
