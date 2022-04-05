@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body{
+    /* box-sizing: border-box; */
+    font-family: 'Kanit', sans-serif;
+    background-color: #F0EEEB;
+    margin: 0;
+}
+nav {
+    /* Navbar */
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+  }
+  .menu1{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-grow: 1;
+  }
+  .menu1 i{
+    padding: 2vw 2vw;
+    font-size: 3vw;
+  }
+  .turn{
+    align-items: center;
+    text-align: center;
+    display: flex;
+  }
+  .container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+
+    
+}
+.username p{
+    font-size: 1.5vw;
+    margin: -10;
+    color: black;
+    background-color: #F88DD5;
+    text-shadow: 0px 0px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 25px 50px;
+
+}
+
+.pic img{
+    width: 15vw;
+    z-index: -1;
+
+}
+.logo{
+    width: 15vw;
+    position: fixed;
+    right: 30;
+    bottom: 20;
+}
+.player1{
+    width: 25vw;
+    display: flex; 
+    flex-direction: column-reverse;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.player2{
+    width: 25vw;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+.table{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+.turn{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+.turn p{
+    font-size: 2vw;
+    padding: 10;
+    
+}
+.score{
+    font-size: 1.5vw;
+    margin: 30;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+
+.play-area {
+    display: grid;
+    width: 42vw;
+    height: 42vw;
+    grid-template-columns: auto auto auto;
+  }
+  .block {
+    display: flex;
+    width: 14vw;
+    height: 14vw;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    border: 2px solid black;
+    transition: background 0.2s ease-in-out;
+  }
+#block_0,
+#block_1,
+#block_2 {
+    border-top: none;
+}
+#block_0,
+#block_3,
+#block_6 {
+    border-left: none;
+}
+#block_6,
+#block_7,
+#block_8 {
+    border-bottom: none;
+}
+#block_2,
+#block_5,
+#block_8 {
+    border-right: none;
+}

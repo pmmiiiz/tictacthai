@@ -1,0 +1,92 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="play.css">
+</head>
+
+<body>
+    <nav>
+        <div class="menu1">
+            <i class=" icon-chevron-left"></i>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="player1">
+            <div id="profile">
+                <div class="score">
+                    <p style="color:#8A69D4;">You are : O</p>
+                    <p>Score : 0</p>
+                </div>
+                <div class="pic">
+                    <img src="img/profile/pf2.png">
+                </div>
+                <div class="username">
+                    <p>sozapza</p>
+                </div>
+            </div>
+        </div>
+        <div class="table">
+            <div class="turn">
+                <p >Turn : X</p>
+                <p style="font-weight: bold; color:#FB4D44;">Your Turn!!!</p>
+            </div>
+            <div class="play-area">
+                <div id="block_0" class="block"></div>
+                <div id="block_1" class="block"></div>
+                <div id="block_2" class="block"></div>
+                <div id="block_3" class="block"></div>
+                <div id="block_4" class="block"></div>
+                <div id="block_5" class="block"></div>
+                <div id="block_6" class="block"></div>
+                <div id="block_7" class="block"></div>
+                <div id="block_8" class="block"></div>
+            </div>
+        </div>
+        <div class="player2">
+            <div id="profile">
+                <div class="pic">
+                    <img src="img/profile/pf1.png">
+                </div>
+                <div class="username">
+                    <p>meowmeow</p>
+                </div>
+                <div class="score">
+                    <p style="color:#8A69D4;">You are : X</p>
+                    <p>Score : 0</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="logo">
+            <img src="img/logoo.png">
+        </div>
+    </div>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyApQ9zWRq-RyaGSA1p1Pj0Zd4Z1Mg2m4fs",
+            authDomain: "tic-tac-thai.firebaseapp.com",
+            databaseURL: "https://tic-tac-thai-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "tic-tac-thai",
+            storageBucket: "tic-tac-thai.appspot.com",
+            messagingSenderId: "687397968008",
+            appId: "1:687397968008:web:b5119bd7f13a57a908273d",
+            measurementId: "G-Z1L9TSMG5C"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</body>
+
+</html>
