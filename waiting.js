@@ -49,3 +49,23 @@ function start() {
         window.location.href = "./play.html"
     }, 1000); 
 }
+const btninvite = document.querySelector('#invite');
+btninvite.addEventListener('click', btninvitepopup);
+
+
+function btninvitepopup() {
+    document.querySelector('#popupwaiting').style.display = "flex"
+    let coderandom = Math.floor(Math.random() *9999)
+    document.querySelector('#coderan').innerHTML = coderandom
+}
+
+const btnclose = document.querySelector('#closepopup');
+btnclose.addEventListener('click', closepopup);
+
+
+function closepopup() {
+    document.querySelector('#popupwaiting').style.display = "none"
+}
+
+
+

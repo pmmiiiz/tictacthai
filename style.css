@@ -452,3 +452,79 @@ nav {
     background-color: #b3b3b3;
     cursor: default;
 }
+
+/* Popup Code */
+.bgpopup{
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+ 
+}
+.popuocode{
+    width: 45vw;
+    height: 20vW;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: nowrap;
+    border: #E7BD4F solid 8px;
+    flex-direction: column;
+    
+}
+.popuocodename{
+    width: 20vw;
+    height: 5vW;
+    background-color: #8A69D4;
+    color: #FFFFFF;
+    z-index: 2;
+    position: relative;
+    border-radius: 10px;
+    margin-top: -40px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+
+}
+
+.closepopupcode img{
+    width: 2vw;
+    cursor: pointer;
+}
+.popup-content{
+    display: flex;
+   flex-wrap: wrap;
+   flex: 3;
+   justify-content: center;
+   padding-left: 8vw;
+   padding-top: 1vw;
+
+}
+
+.popupheader{
+    width: 45vw;
+    height: 20vW;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: nowrap;
+  
+}
+
+.code{
+    height: 40vw;
+    text-align: center;
+    width: 45vw;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+#invite{
+    cursor: pointer;
+}

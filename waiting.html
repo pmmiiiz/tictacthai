@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <div class="back">
@@ -20,8 +22,31 @@
             <img src="img/logoo.png">
         </div>
         <div class="back">
-        </div>  
+        </div>
     </nav>
+
+    <div class="bgpopup" id="popupwaiting">
+
+        <div class="popuocode">
+            <div class="popupheader">
+                <div class="popup-content">
+                </div>
+                <div class="popuocodename">
+                    CODE
+                </div>
+                <div class="popup-content">
+                    <div class="closepopupcode" id="closepopup">
+                        <img src="img/cancle.png">
+                    </div>
+                </div>
+            </div>
+            <div class="code" id="coderan">
+                fjwoeujohf
+            </div>
+        </div>
+    </div>
+
+
     <div class="content">
         <div class="match">
             <div class="playerone">
@@ -33,24 +58,24 @@
                     <div>loading...</div>
                 </div>
                 <div class="buttonjoin">
-                    <button  type="button" id="join-x" class="btnjoin-x">พร้อม</button>
-                    <button  type="button" id="cancel-x" class="btncancel-x">ยกเลิก</button>
+                    <button type="button" id="join-x" class="btnjoin-x">พร้อม</button>
+                    <button type="button" id="cancel-x" class="btncancel-x">ยกเลิก</button>
                 </div>
             </div>
             <div class="vs">
-            <b>VS</b> 
+                <b>VS</b>
             </div>
             <div class="playertwo">
                 <div class="ready">เชิญเพื่อน</div>
-                <div class="pic">
+                <div class="pic" id="invite">
                     <img src="img/profile/pfinvite.png">
                 </div>
                 <div class="username-o">
                     <div>loading...</div>
                 </div>
                 <div class="buttonjoin">
-                    <button  type="button" id="join-o" class="btnjoin-o">พร้อม</button>
-                    <button  type="button" id="cancel-o" class="btncancel-o">ยกเลิก</button>
+                    <button type="button" id="join-o" class="btnjoin-o">พร้อม</button>
+                    <button type="button" id="cancel-o" class="btncancel-o">ยกเลิก</button>
                 </div>
             </div>
         </div>
@@ -73,4 +98,5 @@
     </script>
     <script type="text/javascript" src="waiting.js"></script>
 </body>
+
 </html>
