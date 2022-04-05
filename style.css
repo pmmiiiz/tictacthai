@@ -161,7 +161,7 @@ nav {
     display: inline-block;
     font-size: 20pt;
     font-family: 'Kanit', sans-serif;
-    margin: 10px 2px;
+    margin: 50px 2px;
     cursor: pointer;
     border-radius: 10px;
 }
@@ -206,7 +206,7 @@ nav {
     border: none;
     text-align: center;
     text-decoration: none;
-    font-size: 1.8vw;
+    font-size: 2.8vw;
     font-family: 'Fredoka One', cursive;
     cursor: pointer;
     border-radius: 50%;
@@ -290,4 +290,9 @@ nav {
     cursor: pointer;
     border-radius: 30px;
     /* flex: 1; */
+}
+
+.btnback a{
+    text-decoration: none;
+    color: black;
 }

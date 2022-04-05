@@ -25,16 +25,16 @@
     <div class="content">
         <div class="user">
             <div id="profile">
-                <div class="pic">
+                <div class="pic" id="pic-profile">
                     <img src="img/profile/pf1.png">
                 </div>
-                <div class="username">
+                <div class="username" id="nickname">
                     <p>meowmeow</p>
                 </div>
             </div>
         </div>
-        <button class="btnmode">3 X 3</button>
-        <button class="btnplay">เล่น</button>
+        <!-- <button class="btnmode">3 X 3</button> -->
+        <button class="btnplay" id="btn-playgame">เล่น</button>
 
     </div>
     <script>
@@ -50,6 +50,7 @@
         };
         firebase.initializeApp(firebaseConfig);
     </script>
+    <script type="text/javascript" src="user.js"></script>
 </body>
 
 </html>
