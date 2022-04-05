@@ -59,6 +59,7 @@ nav {
     text-decoration: none;
     color: black;
 }
+
 .btnback{
     border: none;
     text-align: center;
@@ -68,6 +69,15 @@ nav {
     cursor: pointer;
     border-radius: 50%;
     z-index: 5;
+}
+
+.back{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 0 0 0 2vw;
+    flex: 1;
 }
 #profile{
     justify-content: center;
