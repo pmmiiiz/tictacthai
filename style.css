@@ -152,7 +152,7 @@ nav {
   }
 
 .btnplay{
-    background-color: #F88DD5;
+    background-color: #747474;
     border: none;
     color: white;
     padding: 5px 110px;
@@ -161,8 +161,35 @@ nav {
     display: inline-block;
     font-size: 20pt;
     font-family: 'Kanit', sans-serif;
-    margin: 50px 2px;
+    margin: 10px 2px;
     cursor: pointer;
+    border-radius: 10px;
+}
+
+.joinfriend{
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+.btnjoinwith{
+    background-color: #F88DD5;
+    border: none;
+    color: white;
+    padding: 9px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18pt;
+    font-family: 'Kanit', sans-serif;
+    margin: 12px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.joinfriend input{
+    width: 50%;
+    margin: 10px;
     border-radius: 10px;
 }
 .btnlogout{
