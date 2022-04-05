@@ -23,12 +23,18 @@ firebase.auth().onAuthStateChanged((user) => {
       console.log(inputusername, uid)
       const image = document.querySelectorAll('.pic img');
       console.log(image[selectnumpic])
-     
-        firebase.database().ref('users/' + uid).set({
+      const currentuser = firebase.auth().currentUser
+        firebase.database().ref('users/' + currentuser.uid).update({
           username: inputusername,
           email: email,
           profile_picture : image[selectnumpic].src
         });
-        window.location.href = "./menu.html"
+        setTimeout(function(){
+          
+          window.location.href = "./menu.html"
+          
+      }, 1000);
+     
+      
   }
 

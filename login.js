@@ -79,7 +79,7 @@ function loginUser(event) {
         setTimeout(function(){
             loginModal.hide()
             loginForm.reset();
-            window.location.href = "./menu.html"
+            // window.location.href = "./menu.html"
             loginFeedback.innerHTML = ``;
         }, 1000);
        
