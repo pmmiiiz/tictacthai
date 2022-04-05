@@ -23,3 +23,12 @@ function play() {
         window.location.href = "./waiting.html"
     }, 1000); 
 }
+
+const btnLogout = document.querySelector("#btn-logout");
+btnLogout.addEventListener('click', () => {
+    firebase.auth().signOut()
+    console.log('Logout completed.');
+    setTimeout(function(){
+        window.location.href = "./index.html"
+    }, 1000);
+})
