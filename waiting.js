@@ -1,27 +1,52 @@
 const refuser = firebase.database().ref("users")
 const refroom = firebase.database().ref("rooms")
-const btnjoin = document.querySelector('#join-x');
-btnjoin.addEventListener('click', ready);
 
-function ready() {
-    document.querySelector('#readyjoin').innerHTML = "พร้อมแล้ว!!!"
-    document.querySelector('#readyjoin').style.color = "#FB4D44"
+const btnjoinx = document.querySelector('#join-x');
+btnjoinx.addEventListener('click', readyx);
+
+function readyx() {
+    document.querySelector('#readyjoinx').innerHTML = "พร้อมแล้ว!!!"
+    document.querySelector('#readyjoinx').style.color = "#FB4D44"
     document.querySelector('#join-x').disabled = true;
     document.querySelector('#join-x').classList.add("disabled")
     document.querySelector('#cancel-x').disabled = false;
     document.querySelector('#cancel-x').classList.remove("disabledd")
 }
 
-const btncancel = document.querySelector('#cancel-x');
-btncancel.addEventListener('click', cancel);
+const btncancelx = document.querySelector('#cancel-x');
+btncancelx.addEventListener('click', cancelx);
   
-function cancel() {
-    document.querySelector('#readyjoin').innerHTML = "รอก่อน..."
-    document.querySelector('#readyjoin').style.color = "#E7BD4F"
+function cancelx() {
+    document.querySelector('#readyjoinx').innerHTML = "รอก่อน..."
+    document.querySelector('#readyjoinx').style.color = "#E7BD4F"
     document.querySelector('#cancel-x').disabled = true;
     document.querySelector('#cancel-x').classList.add("disabledd")
     document.querySelector('#join-x').disabled = false;
     document.querySelector('#join-x').classList.remove("disabled")
+}
+
+const btnjoino = document.querySelector('#join-o');
+btnjoino.addEventListener('click', readyo);
+
+function readyo() {
+    document.querySelector('#readyjoino').innerHTML = "พร้อมแล้ว!!!"
+    document.querySelector('#readyjoino').style.color = "#FB4D44"
+    document.querySelector('#join-o').disabled = true;
+    document.querySelector('#join-o').classList.add("disabled")
+    document.querySelector('#cancel-o').disabled = false;
+    document.querySelector('#cancel-o').classList.remove("disabledd")
+}
+
+const btncancelo = document.querySelector('#cancel-o');
+btncancelo.addEventListener('click', cancelo);
+  
+function cancelo() {
+    document.querySelector('#readyjoino').innerHTML = "รอก่อน..."
+    document.querySelector('#readyjoino').style.color = "#E7BD4F"
+    document.querySelector('#cancel-o').disabled = true;
+    document.querySelector('#cancel-o').classList.add("disabledd")
+    document.querySelector('#join-o').disabled = false;
+    document.querySelector('#join-o').classList.remove("disabled")
 }
 
 const btnstart = document.querySelector('#btn-startgame');
@@ -43,8 +68,9 @@ refroom.on("value", (data)=>{
     const currentuser = firebase.auth().currentUser
     for(const r in data){
         const room = data[r]
-        console.log(room); 
-        refuser.child(room.playerx).on("value", user => {
+        console.log(room);
+        if (room.playerx == currentuser.uid || room.playero == currentuser.uid) {
+            refuser.child(room.playerx).on("value", user => {
             user = user.val()
             document.querySelector('#pic-profile img').src = user.profile_picture
             document.querySelector('#nickname div').innerHTML = user.username
@@ -57,7 +83,13 @@ refroom.on("value", (data)=>{
             document.querySelector('#join-o').style.opacity = "1"
             document.querySelector('#cancel-o').style.opacity = "1"
             document.querySelector('.username-o').style.opacity = "1"
+            document.querySelector('.btnjoin-o').style.cursor = "pointer"
+            document.querySelector('.btncancel-o').style.cursor = "pointer"
+            document.querySelector('#invitefr').style.display = "none"
+            document.querySelector('#readyjoino').style.display = "block"
         })
+        }
+        
     }
 })
 const btnclose = document.querySelector('#closepopup');

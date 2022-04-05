@@ -388,6 +388,8 @@ nav {
     padding: 50px 0 20px 0;
     font-weight: bold;
 }
+
+
 .playerone .pic{
     display: flex;
     text-align: center;
@@ -451,6 +453,18 @@ nav {
 .btncancel-x.disabledd{
     background-color: #b3b3b3;
     cursor: default;
+}
+.btnjoin-o.disabled{
+    background-color: #e9d39c;
+    cursor: default;
+}
+
+.btncancel-o.disabledd{
+    background-color: #b3b3b3;
+    cursor: default;
+}
+#readyjoino{
+    display: none;
 }
 
 /* Popup Code */
