@@ -1,6 +1,44 @@
 const refuser = firebase.database().ref("users")
 const refroom = firebase.database().ref("rooms")
+const goback = document.querySelector('.btnback')
 
+goback.addEventListener('click', backback);
+function backback() {
+    let exit = false
+    let roomcode;
+    const currentuser = firebase.auth().currentUser
+    refroom.once("value", (data)=>{
+        data = data.val()
+        for(const rcode in data){
+            console.log(data[rcode]);
+            if (currentuser.uid == data[rcode].playerx){
+                refroom.child(rcode).child("playerx").remove()
+                exit=true
+                roomcode = rcode
+                return
+                
+            }
+            else if (currentuser.uid == data[rcode].playero){
+                refroom.child(rcode).child("playero").remove()
+                exit=true
+                roomcode = rcode
+                return
+            }
+            
+        }
+    })
+    refroom.once("value", (data)=>{
+        data = data.val()
+        if(roomcode && !data[roomcode].playerx && !data[roomcode].playero){
+            refroom.child(roomcode).remove()
+            alert("remove");
+        }
+        if (exit==true) {
+            window.location.href = "./menu.html"
+        }
+    })
+  
+}
 const btnjoinx = document.querySelector('#join-x');
 btnjoinx.addEventListener('click', readyx);
 
@@ -11,6 +49,7 @@ function readyx() {
     document.querySelector('#join-x').classList.add("disabled")
     document.querySelector('#cancel-x').disabled = false;
     document.querySelector('#cancel-x').classList.remove("disabledd")
+    console.log("xอยู่จ้า");
 }
 
 const btncancelx = document.querySelector('#cancel-x');
@@ -35,6 +74,7 @@ function readyo() {
     document.querySelector('#join-o').classList.add("disabled")
     document.querySelector('#cancel-o').disabled = false;
     document.querySelector('#cancel-o').classList.remove("disabledd")
+    console.log("oอยู่จ้า");
 }
 
 const btncancelo = document.querySelector('#cancel-o');

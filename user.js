@@ -23,19 +23,32 @@ function play() {
     let coderandom = Math.floor(Math.random() *9999)
     refroom.once("value", (data)=>{
         data = data.val()
-        if (!data || !data[coderandom]){
-
-            refroom.child(coderandom).update({
-                code:coderandom,
-                playerx:currentuser.uid
-            })
-            setTimeout(function(){
+        let inroom = false;
+        for(const rcode in data){
+            console.log(data[rcode]);
+            if (currentuser.uid == data[rcode].playerx || currentuser.uid == data[rcode].playero){
+                console.log("มีห้องแร้วจ้า");
+                inroom = true;
                 window.location.href = "./waiting.html"
-            }, 1000); 
+                return;
+            }
         }
-        else {
-            play()
-        }
+
+        if(inroom == false){
+            if (!data || !data[coderandom]){
+
+                refroom.child(coderandom).update({
+                    code:coderandom,
+                    playerx:currentuser.uid
+                })
+                setTimeout(function(){
+                    window.location.href = "./waiting.html"
+                }, 1000); 
+            }
+            else {
+                play()
+            }
+    }
     })
 }
 
@@ -55,16 +68,29 @@ function joinroom(){
     const code = document.querySelector("#roomid").value
     refroom.once("value", (data)=>{
         data = data.val()
-        if(data[code]){
-            refroom.child(code).update({
-                playero:currentuser.uid
-            })
-            setTimeout(function(){
+        let inroom = false;
+        for(const rcode in data){
+            console.log(data[rcode]);
+            if (currentuser.uid == data[rcode].playerx || currentuser.uid == data[rcode].playero){
+                console.log("มีห้องแร้วจ้า");
+                inroom = true;
                 window.location.href = "./waiting.html"
-            }, 1000);
+                return;
+            }
         }
-        else{
-            alert("ไม่มีห้องนี้จ้า")
+        if(inroom == false){
+            if(data[code]){
+                refroom.child(code).update({
+                    playero:currentuser.uid
+                })
+                setTimeout(function(){
+                    window.location.href = "./waiting.html"
+                }, 1000);
+            }
+            else{
+                alert("ไม่มีห้องนี้จ้า")
+            }
         }
     })
+    console.log("เข้าไป");
 }
