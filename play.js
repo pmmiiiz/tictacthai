@@ -58,7 +58,7 @@ function setuproom(room){
 }
 
 document.querySelectorAll(".block").forEach((el)=>{
-    el.addEventListener("click", clickxo)
+    el.addEventListener("click", question)
 })
 
 function clickxo(){
@@ -105,4 +105,17 @@ function checkWinner(data){
             return
         }
     }
+}
+
+var modal = document.getElementById("qpopup");
+
+
+function question() {
+    modal.style.display = "block";
+  }
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
