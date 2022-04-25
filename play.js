@@ -112,10 +112,16 @@ var modal = document.getElementById("qpopup");
 
 function question() {
     modal.style.display = "block";
+    let count = 4;
+    let timerId = setInterval(() => {
+    document.querySelector('#time').innerHTML = count
+        if (count == 0) {
+            modal.style.display = "none";
+            document.querySelector('#time').innerHTML = "5"
+            clearInterval(timerId);
+        }
+    count--;
+    }, 1000);
+
   }
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}

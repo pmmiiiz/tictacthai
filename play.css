@@ -265,3 +265,9 @@ nav {
     cursor: pointer;
     border-radius: 50px;
 }
+#time{
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    color: red;
+}
