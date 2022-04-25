@@ -1,6 +1,7 @@
 const refuser = firebase.database().ref("users")
 const refroom = firebase.database().ref("rooms")
 const goback = document.querySelector('.btnback')
+let roominfo = {}
 
 goback.addEventListener('click', backback);
 function backback() {
@@ -93,9 +94,9 @@ const btnstart = document.querySelector('#btn-startgame');
 btnstart.addEventListener('click', start);
   
 function start() {
-    setTimeout(function(){
-        window.location.href = "./play.html"
-    }, 1000); 
+    refroom.child(roominfo.code).update({
+        "status": "start"
+    })
 }
 const btninvite = document.querySelector('#invite');
 btninvite.addEventListener('click', btninvitepopup);
@@ -110,6 +111,7 @@ refroom.on("value", (data)=>{
         const room = data[r]
         console.log(room);
         if (room.playerx == currentuser.uid || room.playero == currentuser.uid) {
+            roominfo = room
             refuser.child(room.playerx).on("value", user => {
             user = user.val()
             document.querySelector('#pic-profile img').src = user.profile_picture
@@ -123,14 +125,96 @@ refroom.on("value", (data)=>{
             document.querySelector('#join-o').style.opacity = "1"
             document.querySelector('#cancel-o').style.opacity = "1"
             document.querySelector('.username-o').style.opacity = "1"
-            document.querySelector('.btnjoin-o').style.cursor = "pointer"
-            document.querySelector('.btncancel-o').style.cursor = "pointer"
+            // document.querySelector('.btnjoin-o').style.cursor = "pointer"
+            // document.querySelector('.btncancel-o').style.cursor = "pointer"
             document.querySelector('#invitefr').style.display = "none"
             document.querySelector('#readyjoino').style.display = "block"
         })
+            
+            if (room["ready-x"] == "yes"){
+                document.querySelector('#join-x').disabled = true;
+                document.querySelector('#cancel-x').disabled = false;
+                document.querySelector('#readyjoinx').innerHTML = "พร้อมแล้ว!!!"
+                document.querySelector('#readyjoinx').style.color = "#FB4D44"
+                document.querySelector('#join-x').classList.add("disabled")
+                document.querySelector('#cancel-x').classList.remove("disabledd")
+            }
+            else if (room["ready-x"] == "no"){
+                document.querySelector('#join-x').disabled = false;
+                document.querySelector('#cancel-x').disabled = true;
+                document.querySelector('#readyjoinx').innerHTML = "รอก่อน..."
+                document.querySelector('#readyjoinx').style.color = "#E7BD4F"
+                document.querySelector('#join-x').classList.remove("disabled")
+                document.querySelector('#cancel-x').classList.add("disabledd")
+            }
+            else{
+                document.querySelector('#join-x').disabled = false;
+                document.querySelector('#cancel-x').disabled = true;
+                document.querySelector('#join-x').classList.remove("disabled")
+                document.querySelector('#cancel-x').classList.add("disabledd")
+            }
+            if (room["ready-o"] == "yes"){
+                document.querySelector('#join-o').disabled = true;
+                document.querySelector('#cancel-o').disabled = false;
+                document.querySelector('#readyjoino').innerHTML = "พร้อมแล้ว!!!"
+                document.querySelector('#readyjoino').style.color = "#FB4D44"
+                document.querySelector('#join-o').classList.add("disabled")
+                document.querySelector('#cancel-o').classList.remove("disabledd")
+            }
+            else if (room["ready-o"] == "no"){
+                document.querySelector('#join-o').disabled = false;
+                document.querySelector('#cancel-o').disabled = true;
+                document.querySelector('#readyjoino').innerHTML = "รอก่อน..."
+                document.querySelector('#readyjoino').style.color = "#E7BD4F"
+                document.querySelector('.btnjoin-o').style.cursor = "pointer"
+                document.querySelector('.btncancel-o').style.cursor = "pointer"
+                document.querySelector('#join-o').classList.remove("disabled")
+                document.querySelector('#cancel-o').classList.add("disabledd")
+            }
+            else{
+                document.querySelector('#join-o').disabled = false;
+                document.querySelector('#cancel-o').disabled = true;
+                document.querySelector('#join-o').classList.remove("disabled")
+                document.querySelector('#cancel-o').classList.add("disabledd")
+            }
+            if (currentuser.uid == room.playerx){
+                document.querySelector('#join-o').disabled = true;
+                document.querySelector('#cancel-o').disabled = true;
+                document.querySelector('#join-o').classList.add("disabled")
+                document.querySelector('#cancel-o').classList.add("disabledd")
+                document.querySelector('.btnjoin-o').style.cursor = "default"
+                document.querySelector('.btncancel-o').style.cursor = "default"
+            }
+            else{
+                document.querySelector('#join-x').disabled = true;
+                document.querySelector('#cancel-x').disabled = true;
+                document.querySelector('#join-x').classList.add("disabled")
+                document.querySelector('#cancel-x').classList.add("disabledd")
+            }
+            if ((room["ready-x"] == "yes") && (room["ready-o"] == "yes")) {
+                document.querySelector('#btn-startgame').disabled = false;
+                document.querySelector('#btn-startgame').classList.remove("disabled")
+            }
+            else{
+                document.querySelector('#btn-startgame').disabled = true;
+                document.querySelector('#btn-startgame').classList.add("disabled")
+            }
+            if (room["status"] == "start"){
+                setTimeout(function(){
+                    window.location.href = "./play.html"
+                }, 1000); 
+            }
         }
         
     }
+    
+
+    // if (&&){
+    //     document.querySelector('#btn-startgame').disabled = false;
+    // }
+    // else{
+    //     document.querySelector('#btn-startgame').disabled = true;
+    // }
 })
 const btnclose = document.querySelector('#closepopup');
 btnclose.addEventListener('click', closepopup);
@@ -139,5 +223,28 @@ function closepopup() {
     document.querySelector('#popupwaiting').style.display = "none"
 }
 
+function ready(player){
+    if(player == "x"){
+        refroom.child(roominfo.code).update({
+        "ready-x": "yes"
+    })
+    }
+    else{
+        refroom.child(roominfo.code).update({
+            "ready-o": "yes"
+        })
+    }
+}
 
-
+function cancel(player){
+    if(player == "x"){
+        refroom.child(roominfo.code).update({
+        "ready-x": "no"
+    })
+    }
+    else{
+        refroom.child(roominfo.code).update({
+            "ready-o": "no"
+        })
+    }
+}

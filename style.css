@@ -542,3 +542,8 @@ nav {
 #invite{
     cursor: pointer;
 }
+
+#btn-startgame.disabled{
+    background-color: #a6bbb6;
+    cursor: default;
+}
