@@ -137,12 +137,12 @@ function question() {
     document.querySelector('.ans4').innerHTML = randombox[3]
 
     console.log(vocabbox.correct);
-    let count = 4;
+    let count = 9;
     let timerId = setInterval(() => {
     document.querySelector('#time').innerHTML = count
         if (count == 0) {
             modal.style.display = "none";
-            document.querySelector('#time').innerHTML = "5"
+            document.querySelector('#time').innerHTML = "10"
             clearInterval(timerId);
         }
     count--;
@@ -155,6 +155,7 @@ function question() {
     el.addEventListener("click", checkans)
 })
 
+
 function checkans() {
     // document.querySelectorAll(".block").forEach((el)=>{
     //     el.addEventListener("click", clickxo)
@@ -163,10 +164,14 @@ function checkans() {
     console.log(event.target.parentNode.value);
     if(event.target.innerHTML==roominfo.vocabs[event.target.parentNode.value].correct){
         console.log("good");
+        var audio = new Audio('sound/correct.wav');
+        audio.play();
         clickxo(event.target.parentNode.value)
     }
     else{
         console.log("bad");
+        var audio = new Audio('sound/wrong.mp3');
+        audio.play();
         refroom.child(roominfo.code).update({
             turn: roominfo.turn == "x"?"o":"x"
         })
