@@ -97,7 +97,40 @@ function start() {
     refroom.child(roominfo.code).update({
         "status": "start"
     })
+    randomquiz()
 }
+function randomquiz() {
+    if(roominfo.vocabs){
+        return
+    }
+    fetch('./Questions.json')
+  .then(response => response.json())
+  .then(data => {
+      let vocabQuiz = []
+
+    while (vocabQuiz.length != 9){
+        let rdm = Math.floor((Math.random() * (data.length - 1)));
+        if (!vocabQuiz.includes(data[rdm])){
+            vocabQuiz.push(data[rdm])
+        }
+    }
+    console.log(vocabQuiz);
+    refroom.child(roominfo.code).update({
+        "vocabs":{
+            "block_0":vocabQuiz[0],
+            "block_1":vocabQuiz[1],
+            "block_2":vocabQuiz[2],
+            "block_3":vocabQuiz[3],
+            "block_4":vocabQuiz[4],
+            "block_5":vocabQuiz[5],
+            "block_6":vocabQuiz[6],
+            "block_7":vocabQuiz[7],
+            "block_8":vocabQuiz[8],
+        }
+    })
+  });   
+}
+
 const btninvite = document.querySelector('#invite');
 btninvite.addEventListener('click', btninvitepopup);
 

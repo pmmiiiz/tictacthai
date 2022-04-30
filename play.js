@@ -112,6 +112,31 @@ var modal = document.getElementById("qpopup");
 
 function question() {
     modal.style.display = "block";
+    // console.log(event.target.id);
+    const vocabbox = roominfo.vocabs[event.target.id]
+    let randombox = [
+        vocabbox.correct,
+        vocabbox.wrong1,
+        vocabbox.wrong2,
+        vocabbox.wrong3
+    ]
+    console.log(randombox);
+    for (let i = randombox.length - 1; i > 0; i--) {
+        let j = Math.floor((Math.random() * (randombox.length - 1)));
+        const temp = randombox[i];
+        randombox[i] = randombox[j];
+        randombox[j] = temp;
+    }
+        
+        
+    // console.log(data);
+    document.querySelector('.question').value = event.target.id
+    document.querySelector('.ans1').innerHTML = randombox[0]
+    document.querySelector('.ans2').innerHTML = randombox[1]
+    document.querySelector('.ans3').innerHTML = randombox[2]
+    document.querySelector('.ans4').innerHTML = randombox[3]
+
+    console.log(vocabbox.correct);
     let count = 4;
     let timerId = setInterval(() => {
     document.querySelector('#time').innerHTML = count
@@ -124,4 +149,19 @@ function question() {
     }, 1000);
 
   }
+  
+  
+  document.querySelectorAll(".answer").forEach((el)=>{
+    el.addEventListener("click", checkans)
+})
 
+function checkans() {
+    console.log(event.target.innerHTML);
+    console.log(event.target.parentNode.value);
+    if(event.target.innerHTML==roominfo.vocabs[event.target.parentNode.value].correct){
+        console.log("good");
+    }
+    else{
+        console.log("bad");
+    }
+}
