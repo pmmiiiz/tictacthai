@@ -2,6 +2,43 @@ const refuser = firebase.database().ref("users")
 const refroom = firebase.database().ref("rooms")
 const goback = document.querySelector('.btnback')
 let roominfo= {} 
+goback.addEventListener('click', backback);
+function backback() {
+    let exit = false
+    let roomcode;
+    const currentuser = firebase.auth().currentUser
+    refroom.once("value", (data)=>{
+        data = data.val()
+        for(const rcode in data){
+            console.log(data[rcode]);
+            if (currentuser.uid == data[rcode].playerx){
+                refroom.child(rcode).child("playerx").remove()
+                exit=true
+                roomcode = rcode
+                return
+                
+            }
+            else if (currentuser.uid == data[rcode].playero){
+                refroom.child(rcode).child("playero").remove()
+                exit=true
+                roomcode = rcode
+                return
+            }
+            
+        }
+    })
+    refroom.once("value", (data)=>{
+        data = data.val()
+        if(roomcode && !data[roomcode].playerx && !data[roomcode].playero){
+            refroom.child(roomcode).remove()
+            alert("remove");
+        }
+        if (exit==true) {
+            window.location.href = "./menu.html"
+        }
+    })
+  
+}
 
 refroom.on("value", (data)=>{
     // console.log(data.val());
@@ -43,7 +80,6 @@ function setuproom(room){
         // console.log(user);
         document.querySelector(".player1 img").src=user["profile_picture"]
         document.querySelector(".player1 .username div").innerHTML=user["username"]
-        // document.querySelector("#qpopup").style.display = "none"
     })}
     document.querySelector(".table #turn").innerHTML="Turn : "+room["turn"]
     if(room["table"]){
@@ -139,12 +175,12 @@ function question() {
     document.querySelector('.ans4').innerHTML = randombox[3]
 
     console.log(vocabbox.correct);
-    let count = 9;
+    let count = 4;
     let timerId = setInterval(() => {
     document.querySelector('#time').innerHTML = count
         if (count == 0) {
             modal.style.display = "none";
-            document.querySelector('#time').innerHTML = "10"
+            document.querySelector('#time').innerHTML = "5"
             clearInterval(timerId);
         }
     count--;
@@ -180,43 +216,4 @@ function checkans() {
     }
     modal.style.display = "none";
     document.querySelector('#time').innerHTML = "5"
-}
-
-
-goback.addEventListener('click', backback);
-function backback() {
-    let exit = false
-    let roomcode;
-    const currentuser = firebase.auth().currentUser
-    refroom.once("value", (data)=>{
-        data = data.val()
-        for(const rcode in data){
-            console.log(data[rcode]);
-            if (currentuser.uid == data[rcode].playerx){
-                refroom.child(rcode).child("playerx").remove()
-                exit=true
-                roomcode = rcode
-                return
-                
-            }
-            else if (currentuser.uid == data[rcode].playero){
-                refroom.child(rcode).child("playero").remove()
-                exit=true
-                roomcode = rcode
-                return
-            }
-            
-        }
-    })
-    refroom.once("value", (data)=>{
-        data = data.val()
-        if(roomcode && !data[roomcode].playerx && !data[roomcode].playero){
-            refroom.child(roomcode).remove()
-            alert("remove");
-        }
-        if (exit==true) {
-            window.location.href = "./menu.html"
-        }
-    })
-  
 }
