@@ -156,13 +156,14 @@ function question() {
 })
 
 function checkans() {
-    document.querySelectorAll(".block").forEach((el)=>{
-        el.addEventListener("click", clickxo)
-    })
+    
     console.log(event.target.innerHTML);
     console.log(event.target.parentNode.value);
     if(event.target.innerHTML==roominfo.vocabs[event.target.parentNode.value].correct){
         console.log("good");
+        document.querySelectorAll(".block").forEach((el)=>{
+            el.addEventListener("click", clickxo)
+        })
     }
     else{
         console.log("bad");
