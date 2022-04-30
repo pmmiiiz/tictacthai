@@ -61,16 +61,16 @@ document.querySelectorAll(".block").forEach((el)=>{
     el.addEventListener("click", question)
 })
 
-function clickxo(){
+function clickxo(key){
     const currentuser = firebase.auth().currentUser
-    const clickxo = event.target.id
+    // const clickxo = event.target.id
     if(roominfo.winner){
         return
     }
     if (currentuser.uid == roominfo[`player${roominfo.turn}`]){
-        if(!roominfo.table || !roominfo["table"][clickxo]){
+        if(!roominfo.table || !roominfo["table"][key]){
             refroom.child(roominfo.code).child("table").update({
-                [clickxo]: roominfo.turn
+                [key]: roominfo.turn
             })
             refroom.child(roominfo.code).update({
                 turn: roominfo.turn == "x"?"o":"x"
@@ -156,17 +156,23 @@ function question() {
 })
 
 function checkans() {
-    
+    // document.querySelectorAll(".block").forEach((el)=>{
+    //     el.addEventListener("click", clickxo)
+    // })
     console.log(event.target.innerHTML);
     console.log(event.target.parentNode.value);
     if(event.target.innerHTML==roominfo.vocabs[event.target.parentNode.value].correct){
         console.log("good");
-        document.querySelectorAll(".block").forEach((el)=>{
-            el.addEventListener("click", clickxo)
-        })
+        clickxo(event.target.parentNode.value)
     }
     else{
         console.log("bad");
+        refroom.child(roominfo.code).update({
+            turn: roominfo.turn == "x"?"o":"x"
+        })
     }
+    modal.style.display = "none";
+    document.querySelector('#time').innerHTML = "5"
 }
+
 
