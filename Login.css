@@ -14,17 +14,17 @@ body{
     height: 100%;
 }
 .logo img{
-    width: 25vw;
+    width: 25rem;
 }
 .signupbtn {
     margin: 1vw;
     background-color: #8A69D4;
     border: none;
     color: white;
-    padding: 0.5vw 1.5vw 0.5vw 1.5vw;
+    padding: 0.5rem 1.5rem;
     text-align: center;
     text-decoration: none;
-    font-size: 1.25vw;
+    font-size: 15pt;
     cursor: pointer;
     border-radius: 12px;
 }
@@ -33,10 +33,10 @@ body{
     background-color: #E7BD4F;
     border: none;
     color: white;
-    padding: 0.5vw 1.5vw 0.5vw 1.5vw;
+    padding: 0.5rem 1.5rem;
     text-align: center;
     text-decoration: none;
-    font-size: 1.25vw;
+    font-size: 15pt;
     cursor: pointer;
     border-radius: 12px;
 }
@@ -63,7 +63,7 @@ form {
     margin-block-end: 0em;
 }
 .modal-title {
-    font-size: 2.5vw;
+    font-size: 25pt;
     color: #8A69D4;
 }
 .btn-purple {
@@ -71,7 +71,7 @@ form {
     background-color: #8A69D4;
     border-color: #8A69D4;
     border-radius: 15px;
-    width: 6vw;
+    /* width: 6vw; */
 }
 .btn-purple:hover {
     color: #fff;
@@ -84,7 +84,7 @@ form {
     background-color: #9F9F9F;
     border-color: #9F9F9F;
     border-radius: 15px;
-    width: 6vw;
+    /* width: 6vw; */
 }
 .btn-gray:hover {
     color: #fff;
@@ -103,7 +103,7 @@ form {
 }
 
 .btn-close img{
-    width: 2.75vw;
+    width: 2rem;
     top : 0;
     margin-left: -2vw;
 }
@@ -115,4 +115,18 @@ form {
 }
 .modal-header{
     align-items: flex-start
+}
+
+@media only screen and (max-width: 600px){
+    .logo img{
+        width: 15rem;
+    }
+    .signupbtn {
+        font-size: 12pt;
+        padding: 0.2rem 1.2rem;
+    }
+    .loginbtn {
+        font-size: 12pt;
+        padding: 0.2rem 1.2rem;
+    }
 }
