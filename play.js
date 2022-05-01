@@ -1,9 +1,48 @@
 const refuser = firebase.database().ref("users")
 const refroom = firebase.database().ref("rooms")
 const goback = document.querySelector('.btnback')
+const backmenu = document.querySelector('.btnbackmenu')
 let roominfo= {} 
 goback.addEventListener('click', backback);
 function backback() {
+    let exit = false
+    let roomcode;
+    const currentuser = firebase.auth().currentUser
+    refroom.once("value", (data)=>{
+        data = data.val()
+        for(const rcode in data){
+            console.log(data[rcode]);
+            if (currentuser.uid == data[rcode].playerx){
+                refroom.child(rcode).child("playerx").remove()
+                exit=true
+                roomcode = rcode
+                return
+                
+            }
+            else if (currentuser.uid == data[rcode].playero){
+                refroom.child(rcode).child("playero").remove()
+                exit=true
+                roomcode = rcode
+                return
+            }
+            
+        }
+    })
+    refroom.once("value", (data)=>{
+        data = data.val()
+        if(roomcode && !data[roomcode].playerx && !data[roomcode].playero){
+            refroom.child(roomcode).remove()
+            alert("remove");
+        }
+        if (exit==true) {
+            window.location.href = "./menu.html"
+        }
+    })
+  
+}
+
+backmenu.addEventListener('click', backme);
+function backme() {
     let exit = false
     let roomcode;
     const currentuser = firebase.auth().currentUser
@@ -134,12 +173,15 @@ function checkWinner(data){
             refroom.child(data.code).update({
                 winner: turn
             })
-            alert("WINNER " + turn)
+            // alert("WINNER " + turn)
+            document.querySelector("#finishpopup").style.display = "block"
+            document.querySelector('#winner').innerHTML = "WINNER : " + turn
             return
         }
 
         if (data["table"]["block_0"] && data["table"]["block_1"] && data["table"]["block_2"] && data["table"]["block_3"] && data["table"]["block_4"] && data["table"]["block_5"] && data["table"]["block_6"] && data["table"]["block_7"] && data["table"]["block_8"]){
-            alert("DRAW")
+            document.querySelector("#finishpopup").style.display = "block"
+            document.querySelector('#winner').innerHTML = "เสมอกันจ้า"
             return
         }
     }
@@ -186,6 +228,9 @@ function question() {
             modal.style.display = "none";
             document.querySelector('#time').innerHTML = "5"
             clearInterval(timerId);
+            // refroom.child(roominfo.code).update({
+            //     turn: roominfo.turn == "x"?"o":"x"
+            // })
         }
     count--;
     }, 1000);

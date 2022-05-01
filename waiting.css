@@ -3,15 +3,15 @@
 
 body{
     /* box-sizing: border-box; */
-    font-family: 'Kanit', sans-serif;
-    background-color: #F0EEEB;
+    font-family: 'Kanit', sans-serif !important;
+    background-color: #F0EEEB !important;
     margin: 0;
 }
 
 .content{
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -40,7 +40,7 @@ nav {
     justify-content: center;
     text-align: center;
     padding: 2vw 2vw;
-    width: 10vw;
+    width: 200px;
   }
 
 .btnback{
@@ -86,8 +86,8 @@ nav {
     flex-direction: column;
 }
 .vs{
-    flex: 1;
-    font-size: 6.5vw;
+    /* flex: 1; */
+    font-size: 72pt;
     font-family: 'Kanit', sans-serif;
     color: #FB4D44;
     
@@ -198,7 +198,7 @@ nav {
     text-align: center;
     align-items: center;
     justify-content: center;
-    font-size: 20pt;
+    font-size: 18pt;
     padding: 50px 0 20px 0;
     font-weight: bold;
 }
@@ -360,4 +360,46 @@ nav {
 #btn-startgame.disabled{
     background-color: #a6bbb6;
     cursor: default;
+}
+
+@media only screen and (max-width: 600px){
+    .vs{
+        font-size: 40pt;
+        margin: 10px 0;
+    }
+    nav{
+        height: 5%;
+    }
+    .logo img{
+        width: 100px;
+    }
+    .content{
+        padding-top: 10vw;
+    }
+    .playerone .pic img{
+        width: 100px !important;
+    }
+    .playertwo .pic img{
+        width: 100px !important;
+    }
+    .buttonjoin{
+        padding-top: 0%;
+    }
+    .ready {
+        font-size: 14pt;
+        padding: 12px 0 12px 0;
+    }
+    .btnstart {
+        font-size: 18pt;
+    }
+    .username-x div {
+        font-size: 12pt;
+        width: 120px;
+        padding: 0;
+    }
+    .username-o div {
+        font-size: 12pt;
+        width: 120px;
+        padding: 0;
+    }
 }

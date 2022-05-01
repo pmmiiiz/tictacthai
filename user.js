@@ -60,6 +60,14 @@ btnLogout.addEventListener('click', () => {
         window.location.href = "./index.html"
     }, 1000);
 })
+const btnLogoutph = document.querySelector("#btn-logoutph");
+btnLogoutph.addEventListener('click', () => {
+    firebase.auth().signOut()
+    console.log('Logout completed.');
+    setTimeout(function(){
+        window.location.href = "./index.html"
+    }, 1000);
+})
 
 const joinwith = document.querySelector(".btnjoinwith")
 joinwith.addEventListener("click", joinroom)

@@ -82,7 +82,7 @@ nav {
 
   .menu1 i{
     padding: 2vw 2vw;
-    font-size: 3vw;
+    font-size: 26pt;
   }
 
 .btnplay{
@@ -99,7 +99,9 @@ nav {
     cursor: pointer;
     border-radius: 10px;
 }
-
+.btnplay:hover{
+    background-color: #515151;
+}
 .joinfriend{
     display: flex;
     align-items: flex-end;
@@ -121,6 +123,10 @@ nav {
     cursor: pointer;
     border-radius: 10px;
 }
+
+.btnjoinwith:hover{
+    background-color: #d174b2;
+}
 .joinfriend input{
     width: 50%;
     margin: 10px;
@@ -141,6 +147,29 @@ nav {
     border-radius: 10px;
 }
 
+.btnlogoutph{
+    display: none !important;
+    /* background-color: #8A69D4; */
+    border: none;
+    color: #8A69D4;
+    /* padding: 5px 20px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 28pt;
+    font-family: 'Kanit', sans-serif;
+    /* margin: 0px 20px; */
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.btnlogout:hover{
+    background-color: #747474;
+}
+.btnlogoutph:hover{
+    color: #747474;
+}
+
 .username p{
     font-size: 15pt;
     margin: 10;
@@ -156,10 +185,16 @@ nav {
     .pic img{
         width: 180px;
     }
-    input[type=text]{
+    /* input[type=text]{
         width: 150px;
-    }
+    } */
     body{
         overflow-x: hidden;
+    }
+    .btnlogoutph{
+        display: block !important;
+    }
+    .btnlogout{
+        display: none;
     }
 }
