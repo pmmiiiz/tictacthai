@@ -81,7 +81,7 @@ function setuproom(room){
         document.querySelector(".player1 img").src=user["profile_picture"]
         document.querySelector(".player1 .username div").innerHTML=user["username"]
     })}
-    document.querySelector(".table #turn").innerHTML="Turn : "+room["turn"]
+    document.querySelector(".table #turn").innerHTML="Turn : "+(room["turn"]??"x")
     if(room["table"]){
         for(const table in room["table"]){
             document.querySelector(`#${table}`).innerHTML=room["table"][table]
@@ -149,6 +149,10 @@ var modal = document.getElementById("qpopup");
 
 
 function question() {
+    const currentuser = firebase.auth().currentUser
+    if(currentuser.uid != roominfo[`player${roominfo.turn}`]){
+        return
+    }
     modal.style.display = "block";
     // console.log(event.target.id);
     const vocabbox = roominfo.vocabs[event.target.id]
