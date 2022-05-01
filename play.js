@@ -225,12 +225,12 @@ function question() {
     let timerId = setInterval(() => {
     document.querySelector('#time').innerHTML = count
         if (count == 0) {
+            refroom.child(roominfo.code).update({
+                turn: roominfo.turn == "x"?"o":"x"
+            })
             modal.style.display = "none";
             document.querySelector('#time').innerHTML = "5"
-            clearInterval(timerId);
-            // refroom.child(roominfo.code).update({
-            //     turn: roominfo.turn == "x"?"o":"x"
-            // })
+            clearInterval(timerId);         
         }
     count--;
     }, 1000);
@@ -264,5 +264,9 @@ function checkans() {
         })
     }
     modal.style.display = "none";
+    var interval_id = window.setInterval(()=>{}, 99999);
+    for (var i = 0; i < interval_id; i++){window.clearInterval(i);}
     document.querySelector('#time').innerHTML = "5"
+    
+    
 }
