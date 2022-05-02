@@ -105,12 +105,14 @@ form {
 .btn-close img{
     width: 2rem;
     top : 0;
-    margin-left: -2vw;
+    /* margin-left: -2vw; */
 }
 
 .modal-header .btn-close {
     padding: 0;
     margin: 0;
+    width: 2rem;
+    height: 2.5rem;
     
 }
 .modal-header{

@@ -362,7 +362,7 @@ nav {
     cursor: default;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 800px){
     .vs{
         font-size: 40pt;
         margin: 10px 0;
@@ -373,9 +373,9 @@ nav {
     .logo img{
         width: 100px;
     }
-    .content{
+    /* .content{
         padding-top: 10vw;
-    }
+    } */
     .playerone .pic img{
         width: 100px !important;
     }
@@ -401,5 +401,24 @@ nav {
         font-size: 12pt;
         width: 120px;
         padding: 0;
+    }
+    .btncancel-o{
+        font-size: 10pt;
+        padding: 6px 30px;
+    }
+    .btncancel-x{
+        font-size: 10pt;
+        padding: 6px 30px;
+    }
+    .btnjoin-o{
+        font-size: 10pt;
+        padding: 6px 30px;
+    }
+    .btnjoin-x{
+        font-size: 10pt;
+        padding: 6px 30px;
+    }
+    .btnstart{
+        margin: 10px 2px;
     }
 }

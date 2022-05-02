@@ -81,7 +81,7 @@ nav {
   }
 
   .menu1 i{
-    padding: 2vw 2vw;
+    /* padding: 2vw 2vw; */
     font-size: 26pt;
   }
 
@@ -149,7 +149,7 @@ nav {
 
 .btnlogoutph{
     display: none !important;
-    /* background-color: #8A69D4; */
+    background-color: transparent;
     border: none;
     color: #8A69D4;
     /* padding: 5px 20px; */
