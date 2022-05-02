@@ -421,4 +421,26 @@ nav {
     .btnstart{
         margin: 10px 2px;
     }
+    .popuocode {
+        height: 30vw;
+        border-radius: 20px;
+        border: #E7BD4F solid 4px;
+    }
+    .popuocodename {
+        width: 20vw;
+        height: 9vw;
+        margin-top: -18px;
+        font-size: 6vw;
+    }
+    .popup-content {
+        padding-left: 0vw;
+    }
+    .code {
+        height: 40vw;
+        width: 45vw;
+        font-size: 9vw;
+    }
+    .closepopupcode img {
+        width: 5vw;
+    }
 }
