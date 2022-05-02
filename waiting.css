@@ -294,7 +294,7 @@ nav {
  
 }
 .popuocode{
-    width: 45vw;
+    /* width: 45vw; */
     height: 20vW;
     background-color: #FFFFFF;
     border-radius: 50px;
@@ -314,7 +314,7 @@ nav {
     z-index: 2;
     position: relative;
     border-radius: 10px;
-    margin-top: -40px;
+    margin-top: -2.5vw;
     text-align: center;
     font-size: 3.5vw;
     font-weight: bold;
@@ -322,7 +322,7 @@ nav {
 }
 
 .closepopupcode img{
-    width: 2vw;
+    width: 3vw;
     cursor: pointer;
 }
 .popup-content{
