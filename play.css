@@ -127,7 +127,7 @@ nav {
     flex-direction: column;
     align-items: center;
   }
-.turn p{
+.turn {
     font-size: 2vw;
     padding: 10;
     
@@ -311,3 +311,104 @@ nav {
     cursor: pointer;
     border-radius: 10px;
 }
+@media (max-width: 1200px) {
+    .turn {
+        font-size: 30px;
+    }
+    .play-area {
+        width: 45vw;
+        height: 45vw;
+    }
+    .block {
+        width: 15vw;
+        height: 15vw;
+      }
+    .username div {
+        font-size: 3vw;
+    }
+    .score{
+        font-size: 3vw;
+        margin: 0;
+    }
+    #sc2{
+        padding-top: 2vw;
+    }
+    .logo {
+        width: 200px;
+    }
+}
+@media (max-width: 600px) {
+    
+    .turn {
+        font-size: 20px;
+    }
+    #youturn{
+        font-size: 30px;
+    }
+    .play-area {
+        width: 90vw;
+        height: 90vw;
+    }
+    .block {
+        width: 30vw;
+        height: 30vw;
+      }
+    .container{
+        flex-direction: column;
+        overflow: hidden;
+      }
+    .logo {
+        width: 100px;
+    }
+    .username div {
+        font-size: 5vw;
+    }
+    .score {
+        font-size: 20px;
+        margin: 0px;
+    }
+    .pic img {
+        width: 20vw;
+    }
+    .player1{
+        width: 100vw;
+        height: 20vh;
+        position: relative;
+        display: flex;
+        align-items: flex-end;     
+    }
+    .player2{
+        width: 100vw;
+        position: relative;
+        height: 20vh;
+        display: flex;
+        align-items: flex-start;
+        margin-left: -8vw;
+    }
+    .username{
+        width: 20vw;
+    }
+    .username div{
+        padding: 0;
+    }
+    #sc2{
+        padding-top: 5vw;
+    }
+    .question {
+        width: 90vw;
+        font-size: 3vw;
+    }
+    .question .answer{
+        font-size: 5vw;
+    }
+    .result{
+        width: 90vw;
+    }
+    #finishpopup{
+        padding-top: 50vw;
+    }
+    #qpopup{
+        padding-top: 50vw;
+    }
+}
+
