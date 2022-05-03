@@ -32,7 +32,7 @@ function backback() {
         data = data.val()
         if(roomcode && !data[roomcode].playerx && !data[roomcode].playero){
             refroom.child(roomcode).remove()
-            alert("remove");
+            // alert("remove");
         }
         if (exit==true) {
             window.location.href = "./menu.html"
@@ -114,7 +114,7 @@ function randomquiz() {
             vocabQuiz.push(data[rdm])
         }
     }
-    console.log(vocabQuiz);
+    // console.log(vocabQuiz);
     refroom.child(roominfo.code).update({
         "vocabs":{
             "block_0":vocabQuiz[0],

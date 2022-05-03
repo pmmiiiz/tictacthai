@@ -32,7 +32,7 @@ function backback() {
         data = data.val()
         if(roomcode && !data[roomcode].playerx && !data[roomcode].playero){
             refroom.child(roomcode).remove()
-            alert("remove");
+            // alert("remove");
         }
         if (exit==true) {
             window.location.href = "./menu.html"
@@ -70,7 +70,7 @@ function backme() {
         data = data.val()
         if(roomcode && !data[roomcode].playerx && !data[roomcode].playero){
             refroom.child(roomcode).remove()
-            alert("remove");
+            // alert("remove");
         }
         if (exit==true) {
             window.location.href = "./menu.html"
@@ -204,7 +204,7 @@ function question() {
         vocabbox.wrong2,
         vocabbox.wrong3
     ]
-    console.log(randombox);
+    // console.log(randombox);
     for (let i = randombox.length - 1; i > 0; i--) {
         let j = Math.floor((Math.random() * (randombox.length - 1)));
         const temp = randombox[i];
@@ -220,7 +220,7 @@ function question() {
     document.querySelector('.ans3').innerHTML = randombox[2]
     document.querySelector('.ans4').innerHTML = randombox[3]
 
-    console.log(vocabbox.correct);
+    // console.log(vocabbox.correct);
     let count = 4;
     let timerId = setInterval(() => {
     document.querySelector('#time').innerHTML = count
@@ -247,16 +247,16 @@ function checkans() {
     // document.querySelectorAll(".block").forEach((el)=>{
     //     el.addEventListener("click", clickxo)
     // })
-    console.log(event.target.innerHTML);
-    console.log(event.target.parentNode.value);
+    // console.log(event.target.innerHTML);
+    // console.log(event.target.parentNode.value);
     if(event.target.innerHTML==roominfo.vocabs[event.target.parentNode.value].correct){
-        console.log("good");
+        console.log("correct");
         var audio = new Audio('sound/correct.wav');
         audio.play();
         clickxo(event.target.parentNode.value)
     }
     else{
-        console.log("bad");
+        console.log("wrong");
         var audio = new Audio('sound/wrong.mp3');
         audio.play();
         refroom.child(roominfo.code).update({
