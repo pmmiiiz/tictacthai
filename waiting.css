@@ -179,7 +179,7 @@ nav {
 }
 
 .btnstart{
-    background-color: #00C69F;
+    background-color: #a6bbb6;
     border: none;
     color: white;
     padding: 5px 50px;
@@ -189,7 +189,7 @@ nav {
     font-size: 25pt;
     font-family: 'Kanit', sans-serif;
     margin: 50px 2px;
-    cursor: pointer;
+    cursor: default;
     border-radius: 50px;
 }
 
@@ -360,6 +360,10 @@ nav {
 #btn-startgame.disabled{
     background-color: #a6bbb6;
     cursor: default;
+}
+#btn-startgame.enabled{
+    background-color: #00C69F;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 800px){

@@ -151,7 +151,8 @@ refroom.on("value", (data)=>{
             document.querySelector('#nickname div').innerHTML = user.username
         })
         document.querySelector('#coderan').innerHTML = room.code 
-        refuser.child(room.playero).on("value", user => {
+        if (room.playero){
+            refuser.child(room.playero).on("value", user => {
             user = user.val()
             document.querySelector('#invite img').src = user.profile_picture
             document.querySelector('.username-o div').innerHTML = user.username
@@ -162,7 +163,10 @@ refroom.on("value", (data)=>{
             // document.querySelector('.btncancel-o').style.cursor = "pointer"
             document.querySelector('#invitefr').style.display = "none"
             document.querySelector('#readyjoino').style.display = "block"
+            document.querySelector('#invite').style.cursor = "default"
         })
+        }
+        
             
             if (room["ready-x"] == "yes"){
                 document.querySelector('#join-x').disabled = true;
@@ -185,6 +189,8 @@ refroom.on("value", (data)=>{
                 document.querySelector('#cancel-x').disabled = true;
                 document.querySelector('#join-x').classList.remove("disabled")
                 document.querySelector('#cancel-x').classList.add("disabledd")
+                document.querySelector('.btnjoin-o').style.cursor = "default"
+                document.querySelector('.btncancel-o').style.cursor = "default"
             }
             if (room["ready-o"] == "yes"){
                 document.querySelector('#join-o').disabled = true;
@@ -227,10 +233,14 @@ refroom.on("value", (data)=>{
             if ((room["ready-x"] == "yes") && (room["ready-o"] == "yes")) {
                 document.querySelector('#btn-startgame').disabled = false;
                 document.querySelector('#btn-startgame').classList.remove("disabled")
+                document.querySelector('#btn-startgame').enabled = true;
+                document.querySelector('#btn-startgame').classList.add("enabled")
             }
             else{
                 document.querySelector('#btn-startgame').disabled = true;
                 document.querySelector('#btn-startgame').classList.add("disabled")
+                document.querySelector('#btn-startgame').enabled = false;
+                document.querySelector('#btn-startgame').classList.remove("enabled")
             }
             if (room["status"] == "start"){
                 setTimeout(function(){
