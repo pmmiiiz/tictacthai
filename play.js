@@ -179,7 +179,7 @@ function checkWinner(data){
             return
         }
 
-        if (data["table"]["block_0"] && data["table"]["block_1"] && data["table"]["block_2"] && data["table"]["block_3"] && data["table"]["block_4"] && data["table"]["block_5"] && data["table"]["block_6"] && data["table"]["block_7"] && data["table"]["block_8"]){
+        else if (data["table"]["block_0"] && data["table"]["block_1"] && data["table"]["block_2"] && data["table"]["block_3"] && data["table"]["block_4"] && data["table"]["block_5"] && data["table"]["block_6"] && data["table"]["block_7"] && data["table"]["block_8"]){
             document.querySelector("#finishpopup").style.display = "block"
             document.querySelector('#winner').innerHTML = "เสมอกันจ้า"
             return
