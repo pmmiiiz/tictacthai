@@ -87,6 +87,7 @@ nav {
 }
 .pic{
     z-index: 0;
+    text-align: center;
 }
 .logo{
     width: 15vw;
@@ -128,12 +129,12 @@ nav {
     align-items: center;
   }
 .turn {
-    font-size: 2vw;
+    font-size: 2.5vw;
     padding: 10;
     
 }
 .score{
-    font-size: 1.5vw;
+    font-size: 2vw;
     margin: 30;
     display: flex;
     justify-content: center;
@@ -323,9 +324,9 @@ nav {
         width: 15vw;
         height: 15vw;
       }
-    .username div {
+    /* .username div {
         font-size: 3vw;
-    }
+    } */
     .score{
         font-size: 3vw;
         margin: 0;
@@ -342,20 +343,20 @@ nav {
     .turn {
         font-size: 20px;
     }
-    #youturn{
+    /* #youturn{
         font-size: 30px;
-    }
+    } */
     .play-area {
-        width: 90vw;
-        height: 90vw;
+        width: 72vw;
+        height: 72vw;
     }
     .block {
-        width: 30vw;
-        height: 30vw;
+        width: 24vw;
+        height: 24vw;
       }
     .container{
-        flex-direction: column;
         overflow: hidden;
+        flex-direction: column-reverse;
       }
     .logo {
         width: 100px;
@@ -372,24 +373,23 @@ nav {
     }
     .player1{
         width: 100vw;
-        height: 20vh;
         position: relative;
         display: flex;
-        align-items: flex-end;     
+        padding: 20px;
+
     }
     .player2{
         width: 100vw;
         position: relative;
         height: 20vh;
         display: flex;
-        align-items: flex-start;
-        margin-left: -8vw;
+        margin-left: 1vw;
     }
-    .username{
+    /* .username{
         width: 20vw;
-    }
+    } */
     .username div{
-        padding: 0;
+        padding: 5px;
     }
     #sc2{
         padding-top: 5vw;
@@ -405,10 +405,13 @@ nav {
         width: 90vw;
     }
     #finishpopup{
-        padding-top: 50vw;
+        padding-top: 45vw;
     }
     #qpopup{
-        padding-top: 50vw;
+        padding-top: 45vw;
+    }
+    .btnback {
+        font-size: 7vw;
     }
 }
 
