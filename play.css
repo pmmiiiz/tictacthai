@@ -347,12 +347,12 @@ nav {
         font-size: 30px;
     } */
     .play-area {
-        width: 72vw;
-        height: 72vw;
+        width: 60vw;
+        height: 60vw;
     }
     .block {
-        width: 24vw;
-        height: 24vw;
+        width: 20vw;
+        height: 20vw;
       }
     .container{
         overflow: hidden;
