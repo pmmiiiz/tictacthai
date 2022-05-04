@@ -52,6 +52,9 @@ nav {
     cursor: pointer;
     border-radius: 50%;
     z-index: 5;
+    background-color: transparent;
+    border: none;
+    color: black;
 }
 
 .back{

@@ -69,6 +69,9 @@ nav {
     cursor: pointer;
     border-radius: 50%;
     z-index: 5;
+    background-color: transparent;
+    border: none;
+    color: black;
 }
 
 .back{
@@ -337,6 +340,9 @@ nav {
     .logo {
         width: 200px;
     }
+    .container {
+        overflow: hidden;
+    }
 }
 @media (max-width: 600px) {
     
@@ -357,19 +363,20 @@ nav {
     .container{
         overflow: hidden;
         flex-direction: column-reverse;
+        /* height: 90%; */
       }
     .logo {
         width: 100px;
     }
     .username div {
-        font-size: 5vw;
+        font-size: 14pt;
     }
     .score {
         font-size: 20px;
         margin: 0px;
     }
     .pic img {
-        width: 20vw;
+        width: 100px;
     }
     .player1{
         width: 100vw;
@@ -392,7 +399,7 @@ nav {
         padding: 5px;
     }
     #sc2{
-        padding-top: 5vw;
+        padding-top: 20px;
     }
     .question {
         width: 90vw;
