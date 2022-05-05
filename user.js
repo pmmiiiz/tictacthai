@@ -13,6 +13,8 @@ refuser.on("value", data => {
 
     document.querySelector('#pic-profile img').src = user.profile_picture
     document.querySelector('#nickname p').innerHTML = user.username
+    document.querySelector('#score').innerHTML = "<b>"+"Win"+" "+(user.win??0)+"&emsp;"+"Lose"+" "+(user.lose??0)+ "</b>"
+
 })
 
 const btnplay = document.querySelector('#btn-playgame');

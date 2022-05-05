@@ -107,7 +107,12 @@ nav {
     align-items: flex-end;
     text-align: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 0px;
+}
+#score{
+    font-size: 15pt;
+    color: #FB4D44;
+    font-family: 'Kanit', sans-serif;
 }
 .btnjoinwith{
     background-color: #F88DD5;

@@ -176,6 +176,21 @@ function checkWinner(data){
             // alert("WINNER " + turn)
             document.querySelector("#finishpopup").style.display = "block"
             document.querySelector('#winner').innerHTML = "WINNER : " + turn
+            const currentuser = firebase.auth().currentUser
+            if (currentuser.uid == data["player"+turn]){
+                refuser.child(data["player"+turn]).once("value", (d)=>{
+                    d = d.val()
+                    refuser.child(data["player"+turn]).update({
+                        win:(d.win ??0)+1
+                    })
+                })
+                refuser.child(data["player"+(turn == "x"?"o":"x")]).once("value", (d)=>{
+                    d = d.val()
+                    refuser.child(data["player"+(turn == "x"?"o":"x")]).update({
+                        lose:(d.lose ??0)+1
+                    })
+                })
+            }
             return
         }
 
