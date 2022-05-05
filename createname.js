@@ -26,9 +26,11 @@ firebase.auth().onAuthStateChanged((user) => {
           username: inputusername,
           email: email,
           profile_picture : image[selectnumpic].src
-        });
-        setTimeout(function(){
+        }).then(() =>{
+          setTimeout(function(){
           window.location.href = "./menu.html"
-      }, 1000);   
+        }, 1000);
+        })
+           
   }
 
